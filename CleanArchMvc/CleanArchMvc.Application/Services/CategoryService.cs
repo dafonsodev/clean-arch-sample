@@ -33,6 +33,7 @@ public class CategoryService : ICategoryService
     {
         var categoryEntity = mapper.Map<Category>(categoryDto);
         await categoryRepository.CreateAsync(categoryEntity);
+        categoryDto.Id = categoryEntity.Id;
     }
 
     public async Task UpdateAsync(CategoryDTO categoryDto)
